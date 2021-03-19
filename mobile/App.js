@@ -1,12 +1,27 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View ,ScrollView } from 'react-native';
+import Card from './src/components/Card';
+import Home from './src/components/Home'
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      
+     <Home/>
       <StatusBar style="auto" />
+    <ScrollView style={styles.Scroll}>
+      <Card/>
+
+      <Card/>
+
+      <Card/>
+
+      <Card/>
+
+      <Card/>
+
+    </ScrollView>
     </View>
   );
 }
@@ -14,8 +29,13 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#5F17EF',
     alignItems: 'center',
     justifyContent: 'center',
   },
-});
+  Scroll:{
+    flex:1,
+    top:-100
+  }
+})
+
