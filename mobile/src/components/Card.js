@@ -58,11 +58,11 @@ const styles = StyleSheet.create({
     textAlign: 'left',
   },
   logo: {
-    height: 200,
-    width: 200,
-    marginRight:200,
+    height: 100,
+    width: 100,
+    marginRight:0,
     marginTop:0,
-    borderRadius:100
+    borderRadius:0
   },
 
   h1:{
@@ -74,8 +74,8 @@ const styles = StyleSheet.create({
   },
   aside:{
       alignItems:'flex-start',
-      marginRight:10,
-      marginLeft:-50,
+      marginRight:0,
+      marginLeft:0,
       top:0
 
   }

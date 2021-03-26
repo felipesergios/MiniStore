@@ -1,15 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import React ,{useState,useEffect} from 'react';
 import { StyleSheet, View ,Image ,FlatList,Text , Button} from 'react-native';
-import styles from '../components/Styles/styleHome'
+import styles from '../components/Styles/styleComments'
 
 import api from '../services/api'
 
 
-export default function Home({navigation}) {
+export default function Comments({navigation , route}) {
+  const { productID } = route.params;
   const [products,setProducts] = useState([])
   async function load(){
-    const res = await api.get('/')
+    const res = await api.get(`/show/${productID}/comments`)
     setProducts(res.data)
 }
 load()
@@ -22,14 +23,14 @@ load()
       <View style={styles.header}>
       
                 <Text style={styles.headerText}>
-                Total de <Text style={styles.headerTextBold}>{products.length} produtos cadastrados.</Text>
+                Foram feitos <Text style={styles.headerTextBold}>{products.length} comentarios</Text>
                 </Text>
             </View>
             <Text style={styles.title}>
-            Bem Vindo
+            Comentarios do produto
             </Text>
             <Text style={styles.descripton}>
-            Escolha um dos produtos abaixo e vem ser tech
+            Veja o que os clientes estão comentando sobre o item 
             </Text>
     
       <StatusBar style="auto" />
@@ -43,41 +44,28 @@ load()
             renderItem={({item:product})=>(
 
                 <View style={styles.cardList}>
-                 
                 <View style={styles.card}>
-                <Text style={styles.cardProperty}>Produto:</Text>
-                <Text style={styles.cardValue}>{product.name}</Text>
-
-
-                <Text style={styles.cardProperty}>Preço:</Text>
-            <Text style={styles.cardValue}>{Intl.NumberFormat('pt-BR',
-            {style:'currency',currency:'BRL'}).format(product.price)}</Text>
-                   <Image source={{uri: product.photo}}
+                <Image source={{uri:`${product.photo}`}}
        style={styles.logo} />
+                <Text style={styles.cardValue}>{product.name}</Text>
+            <Text style={styles.cardValue}>{product.comment}</Text>
+
+                <Text style={styles.cardProperty}>Stars:{product.stars}</Text>
+            
+                   
                 </View>
-                <Button style={styles.detailsButton}
-        title="Veja os detalhes"
-        onPress={() => navigation.navigate('detals',{productID:product.id})}
-      />
+                
+
+      
             </View>
             )}
             />
+            <Button
+        title="Voltar"
+        onPress={() => navigation.goBack()}
+      />
     </View>
   );
 }
 
-const styles1 = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#5F17EF',
-    alignItems: 'center',
-    justifyContent: 'center',
-    
-  },
-  Scroll:{
-    flex:1,
-    top:-100,
-    width:350
-  }
-})
 
