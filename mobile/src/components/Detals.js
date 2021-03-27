@@ -23,7 +23,7 @@ load()
       <View style={styles.header}>
       
                 <Text style={styles.headerText}>
-                Total de <Text style={styles.headerTextBold}>{products.length} produtos cadastrados.</Text>
+                Mostrando <Text style={styles.headerTextBold}>{products.length} produto</Text>
                 </Text>
             </View>
             <Text style={styles.title}>
@@ -43,23 +43,20 @@ load()
             onEndReachedThreshold={0.2}
             renderItem={({item:product})=>(
 
-                <View style={styles.incidentList}>
+                <View style={styles.cardList}>
                  <Button
         title="Comentarios ? "
         onPress={() => navigation.navigate('comments',{productID:product.id})}
       />
-                <View style={styles.incident}>
-                <Text style={styles.incidentProperty}>Produto:</Text>
-                <Text style={styles.incidentValue}>{product.name}</Text>
-
-                <Text style={styles.incidentProperty}>Descrição:</Text>
-            <Text style={styles.incidentValue}>{product.describe}</Text>
-
-                <Text style={styles.incidentProperty}>Preço:</Text>
-            <Text style={styles.incidentValue}>{Intl.NumberFormat('pt-BR',
+                <View style={styles.card}>
+                <Text style={styles.cardProperty}>Produto:</Text>
+                <Text style={styles.cardValue}>{product.name}</Text>
+                <Text style={styles.cardProperty}>Preço:</Text>
+            <Text style={styles.cardValue}>{Intl.NumberFormat('pt-BR',
             {style:'currency',currency:'BRL'}).format(product.price)}</Text>
                    <Image source={{uri: product.photo}}
        style={styles.logo} />
+        <Text style={styles.cardValueDescription}>{product.describe}</Text>
                 </View>
                 <Button
         title="Voltar"
@@ -74,18 +71,4 @@ load()
   );
 }
 
-const styles1 = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#5F17EF',
-    alignItems: 'center',
-    justifyContent: 'center',
-    
-  },
-  Scroll:{
-    flex:1,
-    top:-100,
-    width:350
-  }
-})
 

@@ -32,24 +32,30 @@ export default StyleSheet.create({
         lineHeight:24,
         color:'#737380'
     },
-    incidentList:{
+    cardList:{
         marginBottom:50,
       marginTop:32,  
     },
-    incident:{
+    card:{
         padding:30,
         borderRadius:8,
         backgroundColor:'#fff',
         marginBottom:16,
     },
-    incidentProperty:{
+    cardProperty:{
         fontSize:14,
         color:'#41414d',
         fontWeight:'bold',
     },
-    incidentValue:{
-        marginTop:8,
+    cardValue:{
+        marginTop:0,
         fontSize:15,
+        marginBottom:34,
+        color:'#737380',
+    },
+    cardValueDescription:{
+        marginTop:0,
+        fontSize:20,
         marginBottom:34,
         color:'#737380',
     },
@@ -64,8 +70,8 @@ export default StyleSheet.create({
         fontWeight:'bold',
     },
     logo:{
-        marginLeft:150,
-        marginTop:-220,
+        marginLeft:120,
+        marginTop:-150,
         width:150,
         height:200,
         borderRadius:20

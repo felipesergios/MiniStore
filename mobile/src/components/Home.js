@@ -12,10 +12,10 @@ export default function Home({navigation}) {
     const res = await api.get('/')
     setProducts(res.data)
 }
-load()
-/*useEffect(()=>{
+
+useEffect(()=>{
     load()
-}) */
+},[]) 
 
   return (
     <View style={styles.container}>
@@ -66,18 +66,5 @@ load()
   );
 }
 
-const styles1 = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#5F17EF',
-    alignItems: 'center',
-    justifyContent: 'center',
-    
-  },
-  Scroll:{
-    flex:1,
-    top:-100,
-    width:350
-  }
-})
+
 
