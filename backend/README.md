@@ -41,6 +41,15 @@ yarn dev
 ```
 
 ### que agora o nodemon vai deixar a sua instancia rodando de boas e com isso teremos acesso as rotas da aplicação ... para facilitar vou falar quais são e o que fazem e onde habitam ;)
+#### Observação :
+A porta padrão é a 3000 então o acesso vai ser algo como : 
+```
+http://seuip:3000
+```
+caso queira alterar , o arquivo app.js deve ser editado e está localizado em :
+```
+/src/app.js
+```
 
 ### Todas as rotas dessa aplicação podem ser encontradas no arquivo  "src/routes.JS " temos apenas 3 que são: o
 

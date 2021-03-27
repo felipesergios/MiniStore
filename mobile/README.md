@@ -32,6 +32,12 @@ com tudo baixado vamos executar o expo usando a sua propia CLI:
 expo start
 ```
 com isso o projeto vai ser iniciado , e será mostrada em tela o QR code para que seja lido por seu aparelho .
+#### Observação :
+Preste atenção no IP da sua máquina e porta que o backend está executando , o arquivo deve ser alterado para o seu IP e sua porta escolhida para rodar o projeto na sua máquina , arquivo de configuração está localizado em :
+```
+/mobile/src/services/api.js
+```
+
 
 ### Tecnologias usadas :
 * Expo
