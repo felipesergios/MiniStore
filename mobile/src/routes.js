@@ -7,6 +7,7 @@ const AppStack = createStackNavigator()
 import Home from './components/Home'
 import Detals  from './components/Detals'
 import Comments from './components/Comments'
+import CommentForm from './components/CommentForm';
 
 export default function Routes(){
     return(
@@ -15,6 +16,7 @@ export default function Routes(){
                 <AppStack.Screen name="home" component={Home} options={{ title: 'Overview' }}/>
                 <AppStack.Screen name="detals" component={Detals}/>
                 <AppStack.Screen name="comments" component={Comments}/>
+                <AppStack.Screen name="commentsnew" component={CommentForm}/>
             </AppStack.Navigator>
         </NavigationContainer>
     )

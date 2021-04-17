@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React ,{useState,useEffect} from 'react';
-import { StyleSheet, View ,Image ,FlatList,Text , Button} from 'react-native';
+import { StyleSheet, View ,Image ,FlatList,Text , Button,TouchableOpacity} from 'react-native';
 import styles from '../components/Styles/styleHome'
 
 import api from '../services/api'
@@ -55,10 +55,10 @@ useEffect(()=>{
                    <Image source={{uri: product.photo}}
        style={styles.logo} />
                 </View>
-                <Button style={styles.detailsButton}
-        title="Veja os detalhes"
-        onPress={() => navigation.navigate('detals',{productID:product.id})}
-      />
+                <TouchableOpacity  onPress={() => navigation.navigate('detals',{productID:product.id})} style={styles.btnGreen}>
+          <Text style={styles.registerBtntext}>Veja os detalhes</Text>
+        </TouchableOpacity>
+                
             </View>
             )}
             />

@@ -44,3 +44,4 @@ Preste atenção no IP da sua máquina e porta que o backend está executando , 
 * ReactNative
 * JS
 * Axios
+

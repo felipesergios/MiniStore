@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React ,{useState,useEffect} from 'react';
-import { StyleSheet, View ,Image ,FlatList,Text , Button} from 'react-native';
+import { StyleSheet, View ,Image ,FlatList,Text , Button,TouchableOpacity} from 'react-native';
 import styles from '../components/styles'
 
 import api from '../services/api'
@@ -44,10 +44,11 @@ load()
             renderItem={({item:product})=>(
 
                 <View style={styles.cardList}>
-                 <Button
-        title="Comentarios ? "
-        onPress={() => navigation.navigate('comments',{productID:product.id})}
-      />
+                 
+
+<TouchableOpacity  onPress={() => navigation.navigate('comments',{productID:product.id})} style={styles.btnBlue}>
+          <Text style={styles.registerBtntext}>Comentarios ?</Text>
+        </TouchableOpacity>
                 <View style={styles.card}>
                 <Text style={styles.cardProperty}>Produto:</Text>
                 <Text style={styles.cardValue}>{product.name}</Text>
@@ -58,10 +59,11 @@ load()
        style={styles.logo} />
         <Text style={styles.cardValueDescription}>{product.describe}</Text>
                 </View>
-                <Button
-        title="Voltar"
-        onPress={() => navigation.goBack()}
-      />
+               
+
+<TouchableOpacity  onPress={() => navigation.goBack()} style={styles.btnBlue}>
+          <Text style={styles.registerBtntext}>Voltar</Text>
+        </TouchableOpacity>
 
       
             </View>

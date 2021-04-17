@@ -1,7 +1,7 @@
 
 exports.up = function(knex) {
     return knex.schema.createTable('comments',function(table){
-        table.string('id').primary()
+        table.increments()
         //IdProducts relation ? 
         table.string('idProduct').notNullable()
         table.string('name').notNullable()

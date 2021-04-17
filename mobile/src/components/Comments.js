@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React ,{useState,useEffect} from 'react';
-import { StyleSheet, View ,Image ,FlatList,Text , Button} from 'react-native';
+import { StyleSheet, View ,Image ,FlatList,Text ,TouchableOpacity} from 'react-native';
 import styles from '../components/Styles/styleComments'
 
 import api from '../services/api'
@@ -58,12 +58,18 @@ load()
 
       
             </View>
+            
             )}
             />
-            <Button
-        title="Voltar"
-        onPress={() => navigation.goBack()}
-      />
+            <TouchableOpacity  onPress={() => navigation.goBack()} style={styles.btnBlue}>
+          <Text style={styles.registerBtntext}>Voltar</Text>
+        </TouchableOpacity>
+
+      <TouchableOpacity  onPress={() => navigation.navigate('commentsnew',{ID_P:productID})} style={styles.btnGreen}>
+          <Text style={styles.registerBtntext}>Comentar !</Text>
+        </TouchableOpacity>
+
+
     </View>
   );
 }

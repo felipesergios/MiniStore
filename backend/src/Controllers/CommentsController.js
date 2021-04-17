@@ -13,5 +13,14 @@ module.exports={
        } catch (error) {
            next(error)
        }
-    }
+    },
+
+    async store(req,res){
+        // console.log(req.body.username);
+         const { idProduct,comment,stars,photo ,name}=req.body;
+         const newcomment = await knex('comments').insert([{idProduct,comment,stars,photo,name}])
+         
+ 
+         return res.json(newcomment);
+     }
 }

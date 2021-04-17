@@ -61,6 +61,20 @@ export default StyleSheet.create({
         height:200,
         borderRadius:100
 
+    },
+    btnGreen:{
+        width:"80%",
+    backgroundColor:"#006AE4",
+    borderRadius:25,
+    height:50,
+    alignItems:"center",
+    justifyContent:"center",
+    marginTop:40,
+    marginBottom:10
+    },
+    registerBtntext:{
+        color:'white',
+        fontSize:25
     }
 
 })
