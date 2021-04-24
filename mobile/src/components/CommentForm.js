@@ -2,8 +2,8 @@ import React , {useState}from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity ,ScrollView ,Button} from 'react-native';
 import api from '../services/api'
 
-function CommentForm({navigation , route}){
-    const { ID_P } = route.params;
+function CommentForm({navigation , data}){
+    const  ID_P  = data;
     console.log(ID_P)
 
   async function Cadastro(e){
@@ -79,10 +79,7 @@ function CommentForm({navigation , route}){
           <Text style={styles.registerBtntext}>Salvar</Text>
         </TouchableOpacity>
     
-        <Button style={styles.detailsButton}
-        title="Voltar"
-        onPress={() => navigation.navigate('home')}
-      />
+        
   
       </View>
       </ScrollView>

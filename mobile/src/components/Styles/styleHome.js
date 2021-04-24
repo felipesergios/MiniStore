@@ -75,6 +75,10 @@ export default StyleSheet.create({
     registerBtntext:{
         color:'white',
         fontSize:25
-    }
+    },
+    bottomBanner: {
+        position: "absolute",
+        bottom: 0
+      },
 
 })

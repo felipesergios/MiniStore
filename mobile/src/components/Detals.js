@@ -2,12 +2,16 @@ import { StatusBar } from 'expo-status-bar';
 import React ,{useState,useEffect} from 'react';
 import { StyleSheet, View ,Image ,FlatList,Text , Button,TouchableOpacity} from 'react-native';
 import styles from '../components/styles'
-
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
+import { NavigationContainer } from '@react-navigation/native';
 import api from '../services/api'
+import Home from './Home'
+import Comments from './Comments'
 
 
-export default function Detals({navigation , route}) {
-  const { productID } = route.params;
+export default function Detals({navigation,data}) {
+ const productID = data
+  //alert("Recebi o "+productID)
   const [products,setProducts] = useState([])
   async function load(){
     const res = await api.get(`/show/${productID}`)
@@ -17,6 +21,7 @@ load()
 /*useEffect(()=>{
     load()
 }) */
+
 
   return (
     <View style={styles.container}>
@@ -46,9 +51,7 @@ load()
                 <View style={styles.cardList}>
                  
 
-<TouchableOpacity  onPress={() => navigation.navigate('comments',{productID:product.id})} style={styles.btnBlue}>
-          <Text style={styles.registerBtntext}>Comentarios ?</Text>
-        </TouchableOpacity>
+
                 <View style={styles.card}>
                 <Text style={styles.cardProperty}>Produto:</Text>
                 <Text style={styles.cardValue}>{product.name}</Text>
@@ -61,15 +64,16 @@ load()
                 </View>
                
 
-<TouchableOpacity  onPress={() => navigation.goBack()} style={styles.btnBlue}>
-          <Text style={styles.registerBtntext}>Voltar</Text>
-        </TouchableOpacity>
+
 
       
             </View>
             )}
             />
+            
+
     </View>
+   
   );
 }
 

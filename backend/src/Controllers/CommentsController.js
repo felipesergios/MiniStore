@@ -22,5 +22,21 @@ module.exports={
          
  
          return res.json(newcomment);
-     }
+     },
+
+     async delete(req,res,next){
+        const id = req.params.Id
+       try {
+        const data = await knex('comments').where('id', id).del()
+        return res.json({msg:"deleted"})
+       } catch (error) {
+           next(error)
+       }
+    },
+
 }
+
+
+//knex('accounts')
+//.where('activated', false)
+//.del()

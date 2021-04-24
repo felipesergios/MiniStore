@@ -1,22 +1,30 @@
 import { StatusBar } from 'expo-status-bar';
 import React ,{useState,useEffect} from 'react';
-import { StyleSheet, View ,Image ,FlatList,Text ,TouchableOpacity} from 'react-native';
+import { StyleSheet, View ,Image ,FlatList,Text ,TouchableOpacity ,Button} from 'react-native';
 import styles from '../components/Styles/styleComments'
 
 import api from '../services/api'
 
 
-export default function Comments({navigation , route}) {
-  const { productID } = route.params;
+export default function Comments({ navigation,data}) {
+
+async function deleteComment(ID){
+  const res = await api.delete(`/delete/${ID}`)
+  return
+}
+
+  const  productID  = data;
   const [products,setProducts] = useState([])
   async function load(){
     const res = await api.get(`/show/${productID}/comments`)
     setProducts(res.data)
 }
 load()
+
+
 /*useEffect(()=>{
     load()
-}) */
+})*/ 
 
   return (
     <View style={styles.container}>
@@ -51,8 +59,8 @@ load()
             <Text style={styles.cardValue}>{product.comment}</Text>
 
                 <Text style={styles.cardProperty}>Stars:{product.stars}</Text>
-            
-                   
+                <Button title="Excluir" onPress={()=>{deleteComment(product.id)}}/>
+                    
                 </View>
                 
 
@@ -61,13 +69,7 @@ load()
             
             )}
             />
-            <TouchableOpacity  onPress={() => navigation.goBack()} style={styles.btnBlue}>
-          <Text style={styles.registerBtntext}>Voltar</Text>
-        </TouchableOpacity>
-
-      <TouchableOpacity  onPress={() => navigation.navigate('commentsnew',{ID_P:productID})} style={styles.btnGreen}>
-          <Text style={styles.registerBtntext}>Comentar !</Text>
-        </TouchableOpacity>
+           
 
 
     </View>
